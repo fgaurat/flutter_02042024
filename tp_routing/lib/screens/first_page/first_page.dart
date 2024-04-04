@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tp_routing/screens/second_page/second_page.dart';
+import "dart:developer" as developer;
 
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});
@@ -26,7 +27,21 @@ class FirstPage extends StatelessWidget {
                   (route) => route.isFirst,
                 );
               },
-              child: const Text("Go to SecondPage")),
+              child: const Text("Go to SecondPage pushAndRemoveUntil")),
+        ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                                 MaterialPageRoute(
+                    builder: (context) => const SecondPage(),
+                  ),   
+                ).then((value){
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text('$value'),
+                  ));
+
+                });
+              },
+              child: const Text("Go to SecondPage push")),              
         ],
       ),
     );

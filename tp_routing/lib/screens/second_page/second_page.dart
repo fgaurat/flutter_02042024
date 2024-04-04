@@ -15,7 +15,12 @@ class SecondPage extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text("Go to FirstPage"))
+              child: const Text("Go to FirstPage")),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pop(["Un résultat de la SecondPage"]);
+              },
+              child: const Text("Go to FirstPage with params"))
         ],
       ),
     );
